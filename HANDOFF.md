@@ -7,6 +7,7 @@
 - GitHub：https://github.com/Ming-Sir-69/ericmingle-daily
 - 源码默认分支：`master`。仓库暂时公开，普通读取可直接访问 raw 文件；写入仍通过本人已连接的 GitHub MCP。
 - 网站：https://ai.ycm69.cn/
+- 备用：https://ericmingle-daily.netlify.app/ （本机 Vortex 路径访问新域名失败时可用，同一网站与密码）
 - Netlify 项目：https://app.netlify.com/projects/ericmingle-daily
 - Netlify Site ID：`1076b86b-f4b0-4476-8375-f734039dcf10`
 - Netlify 团队：`Ming_Sir_69`，`682c749d8f1bff5ce43fa6bb`，Free；连接器选择 **Ming_Sir「125邮箱」**，不是另一个 Eric 邮箱账户。
@@ -25,7 +26,7 @@
 6. 查询本次 Actions 和 Netlify 实际 deploy：`state=ready`、`published_at` 非空、branch 为 `netlify-production`。再读 https://ai.ycm69.cn/release.json，`source_commit` 必须与刚才的 master 提交 SHA 一致。
 7. 核对正式页面存在对应日期、内容来源正确、密码入口仍有效，再报告完成。Netlify 项目概览的 enriched “current” 文本不能单独作为成功依据。
 
-本宿主 GitHub MCP 有 create_file／update_file 等写入工具；Claude 需在自己的工具清单核对对应能力。不要把“从 GitHub 添加资料”的只读集成误认为可提交。首次接手实际执行一次写入并核对线上 release，未执行前不要宣称 Claude 端已经完整跑通。
+本宿主已用 GitHub MCP 实际创建本 HANDOFF.md，提交 `adc8a6e` 触发 Actions `38587289823` 成功，Netlify `6acf9be76742a04d0ba4b5cd` 自动发布，release.json 的源码 SHA 一致。Claude 仍需在自己的工具清单核对对应写入能力。不要把“从 GitHub 添加资料”的只读集成误认为可提交。首次接手实际执行一次写入并核对线上 release，未执行前不要宣称 Claude 端已经完整跑通。
 
 ## 已有输入结构和 UI
 
@@ -58,3 +59,7 @@
 某次失败不会替换此前成功生产部署。先根据具体失败阶段修复；不要反复开新的项目或域名模板。Netlify 环境变量 MCP 曾回报成功但读回为空，最终发布不依赖该接口；必要时以实际部署日志为准。
 
 入口准备已完成；Claude 首次真实采集、写入、任务验证属于接手后的工作。
+
+本机网络说明：2026-10-14，Vortex 的 127.0.0.1:7897 代理对新 ycm69.cn 域名出现 ERR_CONNECTION_CLOSED；中国直连与 Netlify 原生备用网址均正常。只追加过三个日报域名的系统绕过项，临时使主站可打开，但 Vortex helper 重启后覆盖了该设置；没有关闭全局代理，也没有后台循环改写网络设置。云端自动发布不依赖本机代理，阅读遇到此问题使用备用网址。
+
+已真实核验两个线上加密页面可精确解密、错误密码拒绝、记住 30 天、四个板块与返回日报中心链接、原始 entries／HANDOFF.md 不作为网站文件发布（404）。公开 GitHub 中的源码和本文件仍可正常读取。

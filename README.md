@@ -9,7 +9,7 @@ Claude 负责内容与 UI，铭哥直接打开 [日报网站](https://ai.ycm69.c
 `Claude GitHub MCP 更新 master → GitHub Actions 校验、构建、加密 → netlify-production 分支 → Netlify 自动发布`。
 
 - 源码仓库：<https://github.com/Ming-Sir-69/ericmingle-daily>，默认分支 `master`。
-- 正式网站：<https://ai.ycm69.cn/>；备用域名：<https://ericmingle-daily.netlify.app/>。
+- 正式网站：<https://ai.ycm69.cn/>；备用域名：<https://ericmingle-daily.netlify.app/>。根域名及 www 经 HTTPS 跳到日报子域名。
 - Netlify 项目：`ericmingle-daily`，ID `1076b86b-f4b0-4476-8375-f734039dcf10`，团队 `Ming_Sir_69`（125 邮箱账户），Free。
 - `netlify-production` 由工作流管理，只含加密页面与发布配置。Claude 日常只改 `master`。
 - 阅读密码在 GitHub 仓库 Secret `BRIEF_PASSWORD`，不在源码或交接提示词里。缺密码、弱密码、未加密页面会阻断发布。
@@ -56,3 +56,5 @@ npm run check  # 隔离构建、加密和精确解密，检查缺密码阻断
 UI 迭代可复制 `templates/v1` 为新版本并更新 `templates/current`；历史记录保留自己的 `template`，不覆盖历史样式。日报中心显示“最新一期”和实际日期，断更时不误标为今天。
 
 现有 Claude 8:55 任务的真实运行与连接器权限，由 Claude 首次接手实测；本轮没有替它新建定时任务。未来迁移保留 JSON、模板、Git 历史与发布接口，当前不购日本服务器。
+
+本机 Vortex 对新域名可能返回连接中断；网站中国直连有效，遇到此问题使用上述 Netlify 原生备用网址。网页阅读密码同一份。完整网络验证边界在 `docs/上线验证.json`。
