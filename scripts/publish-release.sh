@@ -34,6 +34,12 @@ for (const file of files) {
 }
 fs.writeFileSync(path.join(root,'site/release.json'), JSON.stringify({source_commit:process.env.SOURCE_SHA, generated_at:new Date().toISOString(), encrypted_pages:files.length})+'\n');
 NODE
+cat > "$release_dir/site/_redirects" <<'REDIRECTS'
+https://ycm69.cn/* https://ai.ycm69.cn/:splat 301!
+http://ycm69.cn/* https://ai.ycm69.cn/:splat 301!
+https://www.ycm69.cn/* https://ai.ycm69.cn/:splat 301!
+http://www.ycm69.cn/* https://ai.ycm69.cn/:splat 301!
+REDIRECTS
 cat > "$release_dir/netlify.toml" <<'TOML'
 [build]
   command = "test -f site/index.html && test -f site/release.json"

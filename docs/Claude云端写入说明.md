@@ -1,6 +1,6 @@
 # Claude 云端写入日报说明
 
-日报内容继续由 Claude 云端任务生成。独立网页从私有仓库的结构化记录构建，阅读者无需打开 Claude。当前仓库为 [Ming-Sir-69/ericmingle-daily](https://github.com/Ming-Sir-69/ericmingle-daily)，本轮默认分支为 `master`；实际使用时以仓库当前默认分支为准。
+日报内容继续由 Claude 云端任务生成。独立网页从仓库的结构化记录构建，阅读者无需打开 Claude。当前仓库为 [Ming-Sir-69/ericmingle-daily](https://github.com/Ming-Sir-69/ericmingle-daily)，本轮默认分支为 `master`；实际使用时以仓库当前默认分支为准。
 
 ## 需要的能力
 
@@ -27,6 +27,6 @@ Claude 的普通“从 GitHub 添加”功能用于读取和同步仓库资料�
 
 ## 验收
 
-一次更新应同时满足：GitHub 中出现当天文件与真实提交，云端构建检查通过，正式网站出现对应日期，密码保护有效。本轮 GitHub 的 Node 22 构建和加密校验已真实通过，但网站托管尚未配置完成；目前提交不能写成已经自动发布。
+一次更新应同时满足：GitHub 中出现当天文件与真实提交，云端构建检查通过，正式网站出现对应日期，密码保护有效。GitHub Node 22 校验及加密发布工作流已通过，Netlify 自动接收 `netlify-production` 成品分支。生产网站与 HTTPS 已真实检查。仓库目前公开，只提交可公开的日报内容；不把网页访问密码误认为保护源码。
 
-正式域名与日本主机落定后，接通“提交记录 → 构建并加密 → 发布日本站点”的后半段，再让 Claude 侧实际执行一次写入，验证完整链路。
+正式入口为 https://ai.ycm69.cn/，Netlify 项目 ID `1076b86b-f4b0-4476-8375-f734039dcf10`，团队 `Ming_Sir_69`（125 邮箱账户）。Claude 首次接手用已有 MCP 真实写入一次，以 GitHub 提交 SHA 与线上 `/release.json` 的 `source_commit` 一致为验收。详见根目录 HANDOFF.md。不需要域名、服务器登录或阅读密码，也不用直接上传网站。

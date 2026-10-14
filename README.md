@@ -1,54 +1,58 @@
 # 四时日报
 
-本机工作区已于 2026 年 10 月 14 日接收，先在 Claude 侧跑通，再迁入 Dot。当前验证结果、旧版本复用关系和后续边界见 [项目现状](docs/项目现状.md)。以下保留 Claude 的原源码说明，云端上线步骤为后续计划。
+Claude 负责内容与 UI，铭哥直接打开 [日报网站](https://ai.ycm69.cn/) 阅读。源码与交接集中在本仓库，先运行云端工作流，再按需要迁入 Dot 或自有服务器。
 
-Mingle 的每日晨间简报。模板、每天的记录和网站都在这个仓库里，推送后 Netlify 自动部署，打开网址要输入密码。
+**Claude 接手入口：[HANDOFF.md](HANDOFF.md)。**
 
-## 目录
+## 当前发布流程
 
-| 路径 | 内容 |
+`Claude GitHub MCP 更新 master → GitHub Actions 校验、构建、加密 → netlify-production 分支 → Netlify 自动发布`。
+
+- 源码仓库：<https://github.com/Ming-Sir-69/ericmingle-daily>，默认分支 `master`。
+- 正式网站：<https://ai.ycm69.cn/>；备用域名：<https://ericmingle-daily.netlify.app/>。
+- Netlify 项目：`ericmingle-daily`，ID `1076b86b-f4b0-4476-8375-f734039dcf10`，团队 `Ming_Sir_69`（125 邮箱账户），Free。
+- `netlify-production` 由工作流管理，只含加密页面与发布配置。Claude 日常只改 `master`。
+- 阅读密码在 GitHub 仓库 Secret `BRIEF_PASSWORD`，不在源码或交接提示词里。缺密码、弱密码、未加密页面会阻断发布。
+- 仓库已按铭哥授权暂时公开。**公开仓库中的日报 JSON 和历史内容可直接阅读，网页密码不保护 GitHub 源码。** 后续只提交可公开内容，凭据、证件和私人邮件不得入库。
+
+## 成本与边界
+
+域名 `ycm69.cn` 已支付 ¥38／两年，到期 2028-10-14。没有购买服务器、付费 SSL 或 Netlify 升级。
+
+公开仓库使用 `ubuntu-latest` 标准运行器，不计入私有仓库 Actions 免费分钟；没有使用大规格运行器或上传 Actions 构建附件。npm 缓存仍受 GitHub 的存储规则约束。[GitHub 官方计费说明](https://docs.github.com/en/billing/concepts/product-billing/github-actions)
+
+Netlify 只接收已经加密的成品，最新基线部署耗时 7 秒；它自己的构建分钟、流量和存储额度仍然存在，公开 GitHub 不会取消这些限制。[Netlify 旧版 Free 额度](https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-legacy-plans/legacy-pricing-plans/)
+
+## 文件
+
+| 路径 | 用途 |
 | --- | --- |
-| `entries/YYYY-MM-DD.json` | 每天一份结构化记录：画面参数（星期、季节、天气、节日）、开场白、标签、各板块条目 |
-| `templates/v1/` | 第一版模板：`brief.html` 是当天页面，`hub.html` 是日报中心，`partials/` 是板块小插画和分隔装饰 |
-| `templates/current` | 新日报使用的模板版本 |
-| `templates/CHANGELOG.md` | 模板改动记录和待优化事项 |
-| `scripts/build.js` | 把记录和模板生成网站（无依赖） |
-| `scripts/encrypt.sh` | 用 StatiCrypt 给每个页面加密码；没设密码就拒绝发布 |
-| `entries-demo/` | 示例数据，只在 `--demo` 预览时使用，不会发布 |
+| `entries/YYYY-MM-DD.json` | 当天结构化日报 |
+| `templates/current`、`templates/v1/` | 模板版本及现有 UI |
+| `templates/CHANGELOG.md` | UI 迭代记录 |
+| `scripts/build.js` | 正式构建，只读真实 entries |
+| `scripts/encrypt.sh` | StatiCrypt 3.5.4 加密，最低 20 字符密码 |
+| `.github/workflows/publish-netlify.yml` | 主分支变更后自动构建与发布 |
+| `scripts/publish-release.sh` | 只发布加密成品，拒绝旧主分支覆盖 |
+| `entries-demo/` | 预览样例，正式构建不发布 |
+| `HANDOFF.md` | 云端 MCP 接手续作与验收 |
+| `docs/` | 本地接收、调研与上线证据 |
 
-## 日报中心怎么排
-
-借鉴微信「状态」和朋友圈「只展示最近几天」的做法，近的看得全，远的只留一眼：
-
-- **今天**：大幅风景、开场白、标签，一键打开完整简报。
-- **这一周**：每天一行，点开能看到全部条目和影响。
-- **更早**：缩成状态卡，只有当天的风景、开场白和两个标签。
-
-## 本地预览
+## 本地预览与检查
 
 ```bash
-node scripts/build.js          # 真实记录 → public/
-node scripts/build.js --demo   # 加上示例数据 → public-demo/
+npm ci
+npm run build  # public/，真实内容
+npm run demo   # public-demo/，包含示例
+npm run check  # 隔离构建、加密和精确解密，检查缺密码阻断
 ```
 
-直接用浏览器打开 `public/index.html`。
+本地 `public/` 和 `public-demo/` 是明文预览目录，不上传 Netlify；`dist/` 是加密产物，忽略 Git。
 
-## 第一次部署（全免费）
+## 更新与模板迭代
 
-1. 在 [netlify.com](https://www.netlify.com) 用 GitHub 账号登录。
-2. **Add new site → Import an existing project → GitHub**，选这个仓库。构建设置会从 `netlify.toml` 自动读取，不用改。
-3. **Site configuration → Environment variables** 新增 `BRIEF_PASSWORD`，填你想用的密码。密码只存在 Netlify，不进仓库。
-4. **Site configuration → Change site name** 已改成 `ericmingle-daily`；对外网址是 `https://ai.ericmingle69.com`（域名买好、绑定后）。
-5. **Deploys → Trigger deploy**。打开网址，输入密码就能看到日报中心；勾选「记住 30 天」后，这台设备一个月内不用再输。
+按 Asia/Taipei 日期创建或更新 `entries/当天日期.json`，文件名与 `date` 一致。首条 `2026-10-14` 是 Claude 原交付内容，其事实与新鲜度没有因本轮上线而重新获证。
 
-以后想换自己的域名，在 **Domain management** 里加上即可，不影响其他设置。
+UI 迭代可复制 `templates/v1` 为新版本并更新 `templates/current`；历史记录保留自己的 `template`，不覆盖历史样式。日报中心显示“最新一期”和实际日期，断更时不误标为今天。
 
-## 每天怎么更新
-
-定时任务每天早上写一份 `entries/当天日期.json` 并提交，Netlify 收到推送后自动重建网站。
-
-## 模板迭代与回退
-
-- 改模板：复制 `templates/v1` 为 `templates/v2`，在 v2 里改，把 `templates/current` 改成 `v2`，在 `CHANGELOG.md` 记一笔。
-- 回退：把 `templates/current` 改回 `v1`。
-- 旧日子按自己记录里的版本显示，不会被新模板改掉。
+现有 Claude 8:55 任务的真实运行与连接器权限，由 Claude 首次接手实测；本轮没有替它新建定时任务。未来迁移保留 JSON、模板、Git 历史与发布接口，当前不购日本服务器。

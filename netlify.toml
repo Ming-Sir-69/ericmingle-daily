@@ -1,3 +1,4 @@
+# Source-side fallback only. Production serves netlify-production; its generated netlify.toml publishes site/.
 [build]
   command = "node scripts/build.js && bash scripts/encrypt.sh"
   publish = "dist"
