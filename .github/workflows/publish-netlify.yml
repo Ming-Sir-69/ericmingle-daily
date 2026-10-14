@@ -1,0 +1,35 @@
+name: 发布加密日报到 Netlify
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sishi-netlify-production
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - name: 构建并加密正式页面
+        env:
+          BRIEF_PASSWORD: ${{ secrets.BRIEF_PASSWORD }}
+          BRIEF_SALT: c8c0ceacc4f1ee5ffd4abac216c9c2b7
+        run: npm run build && bash scripts/encrypt.sh
+      - name: 发布只含加密页面的分支
+        run: bash scripts/publish-release.sh
