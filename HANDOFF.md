@@ -26,7 +26,7 @@
 6. 查询本次 Actions 和 Netlify 实际 deploy：`state=ready`、`published_at` 非空、branch 为 `netlify-production`。再读 https://ai.ycm69.cn/release.json，`source_commit` 必须与刚才的 master 提交 SHA 一致。
 7. 核对正式页面存在对应日期、内容来源正确、密码入口仍有效，再报告完成。Netlify 项目概览的 enriched “current” 文本不能单独作为成功依据。
 
-2026-10-14，Codex 的 GitHub MCP 创建本 HANDOFF.md，提交 `adc8a6e` 触发 Actions `38587289823` 成功并自动发布。这只证明 Codex 连接器和后端发布链路，不证明 Claude 有同一写文件工具。2026-10-15 本人反馈 Claude 只能用 Git，推送提示缺少 Claude GitHub App：现已安装官方 App，`Ming-Sir-69` 范围 All repositories（含未来仓库），安装编号 `171455412`；完成回调后 Claude GitHub 整合显示已连接。授权配置已核验；Claude 本人的真实 Git 推送重试由铭哥在手机端继续，尚不能记为推送成功。不要把普通“从 GitHub 添加资料”的只读集成误认为提交工具。详见 docs/Claude-GitHub授权核查.md。
+2026-10-14，Codex 的 GitHub MCP 创建本 HANDOFF.md，提交 `adc8a6e` 触发 Actions `38587289823` 成功并自动发布。这只证明 Codex 连接器和后端发布链路，不证明 Claude 有同一写文件工具。2026-10-15 本人反馈 Claude 只能用 Git，推送提示缺少 Claude GitHub App：现已安装官方 App，`Ming-Sir-69` 范围 All repositories（含未来仓库），安装编号 `171455412`；完成回调后 Claude GitHub 整合显示已连接。授权配置已核验；随后真实观察到作者为 Claude、带 Claude-Session 来源的提交 `13683ee` 新增 `entries/2026-10-15.json` 并进入 master。Actions `38609582323` 成功，线上 release.json 的 source_commit 与该完整 SHA 一致、encrypted_pages=3，接手方的写入与发布已取得实际结果。不要把普通“从 GitHub 添加资料”的只读集成误认为提交工具。详见 docs/Claude-GitHub授权核查.md。
 
 ## 已有输入结构和 UI
 
@@ -58,7 +58,7 @@
 
 某次失败不会替换此前成功生产部署。先根据具体失败阶段修复；不要反复开新的项目或域名模板。Netlify 环境变量 MCP 曾回报成功但读回为空，最终发布不依赖该接口；必要时以实际部署日志为准。
 
-域名、托管、发布与 GitHub App 授权已完成配置；Claude 首次真实采集、Git 推送、任务验证属于接手后的工作。
+域名、托管、发布与 GitHub App 授权已完成配置；已观察到 Claude 的 2026-10-15 日报 Git 提交与发布。后续内容采集事实、定时任务执行与下一轮更新仍按真实结果验收。
 
 本机网络说明：2026-10-14，Vortex 的 127.0.0.1:7897 代理对新 ycm69.cn 域名出现 ERR_CONNECTION_CLOSED；中国直连与 Netlify 原生备用网址均正常。只追加过三个日报域名的系统绕过项，临时使主站可打开，但 Vortex helper 重启后覆盖了该设置；没有关闭全局代理，也没有后台循环改写网络设置。云端自动发布不依赖本机代理，阅读遇到此问题使用备用网址。
 

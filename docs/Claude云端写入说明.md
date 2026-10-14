@@ -35,7 +35,7 @@ Claude 的普通“从 GitHub 添加”功能用于读取和同步仓库资料�
 
 本人反馈推送被拒，因为 Claude GitHub App 未安装。已核实当时个人账号的 Installed GitHub Apps 没有 Claude。现已安装官方 `anthropics/claude`，安装编号 `171455412`，`Ming-Sir-69` 的 All repositories 已保存，包含现有及未来仓库；Claude 回调中的“完成连接 GitHub”已完成，连接器页面显示 GitHub 整合已连接。
 
-App 对代码、PR、Actions、工作流等拥有读写权限，管理与元数据为 App 声明的只读权限；“最高”不等于 GitHub 账号所有者权限。当前日报 master 未保护、没有仓库 ruleset。以实际云端 Git 推送重试验收认证；本轮按铭哥要求未启动或发消息给 Claude Code，只配置权限并关闭本次创建的界面。
+App 对代码、PR、Actions、工作流等拥有读写权限，管理与元数据为 App 声明的只读权限；“最高”不等于 GitHub 账号所有者权限。当前日报 master 未保护、没有仓库 ruleset。本轮按铭哥要求未启动或发消息给 Claude Code，只配置权限并关闭本次创建的界面。随后真实观察到接手方的 `13683ee` 提交新增当天日报并进入 master，Actions `38609582323` 成功，线上 release.json 指向同一源码 SHA，实际写入和发布有据。
 
 All repositories 授权不是对本机目录的自动上传。未来项目先创建并推送到 `Ming-Sir-69` 的 GitHub 仓库，Claude App 才会自动覆盖。云端会话仍只可使用附加到该会话的仓库；在 Claude 中选择需要的仓库，再重试 Git。旧会话若仍报权限缺失，先刷新连接／重试并保留成果，不在源码或命令输出里放个人令牌。
 

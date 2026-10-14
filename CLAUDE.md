@@ -2,7 +2,7 @@
 
 先读 [HANDOFF.md](HANDOFF.md)、[AGENTS.md](AGENTS.md) 与 [README.md](README.md)。源码在 `master`。**当前 Claude 接手方没有 Codex 的 GitHub MCP 写文件工具，使用实际可用的 Git 编辑、提交和推送即可；不要等待或索要不存在的 MCP 工具。** GitHub Actions 加密后自动提交 `netlify-production`，Netlify 自动发布。
 
-2026-10-15 已安装官方 `anthropics/claude` GitHub App，安装编号 `171455412`，个人账号 `Ming-Sir-69` 的仓库范围为 **All repositories**，覆盖该账号现有和未来仓库，Claude GitHub 整合已完成连接。代码与工作流等读写权限已由 GitHub 安装页核对；当前 `master` 未保护且没有仓库 ruleset。详情见 [授权核查](docs/Claude-GitHub授权核查.md)。权限配置已验证，接手方实际重试 Git 推送仍由本人在手机端发指令，不把 Codex 的普通 Git 推送当成 Claude 云端认证验证。
+2026-10-15 已安装官方 `anthropics/claude` GitHub App，安装编号 `171455412`，个人账号 `Ming-Sir-69` 的仓库范围为 **All repositories**，覆盖该账号现有和未来仓库，Claude GitHub 整合已完成连接。代码与工作流等读写权限已由 GitHub 安装页核对；当前 `master` 未保护且没有仓库 ruleset。详情见 [授权核查](docs/Claude-GitHub授权核查.md)。随后实际观察到带 Claude-Session 来源的日报提交 `13683ee` 进入 master，Actions `38609582323` 成功，线上 release.json 指向同一源码 SHA，生成三页。这个结果来自接手方提交，不把 Codex 的普通 Git 推送当成 Claude 云端认证验证。
 
 当前仓库按本人授权暂时公开，只提交可公开内容，源码 JSON 不受网页密码保护。不要写入凭据、完整身份信息、私人邮件、卡片数据或访问密码。不要改 Netlify 生产分支为 master，不直接编辑自动生成的 netlify-production，也不上传 public/ 明文。
 
