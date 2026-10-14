@@ -1,0 +1,21 @@
+{
+  "public": {
+    "html_pages": 2,
+    "template_placeholders": "PASS",
+    "internal_links": "PASS"
+  },
+  "public-demo": {
+    "html_pages": 14,
+    "template_placeholders": "PASS",
+    "internal_links": "PASS"
+  },
+  "demo_excluded_from_real_build": "PASS",
+  "missing_password_publish_guard": "PASS",
+  "entry": {
+    "date": "2026-10-14",
+    "sections": 4,
+    "items": 9
+  },
+  "runtime": "v26.7.0",
+  "tested_at": "2026-10-14 Asia/Taipei"
+}
