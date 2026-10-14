@@ -1,11 +1,11 @@
 # Claude 接手四时日报
 
-更新时间：2026-10-14，Asia/Taipei。内容和 UI 由 Claude 继续维护；Codex 已完成域名、托管、GitHub 自动发布和基本验收。先阅读本文与 CLAUDE.md、AGENTS.md、README.md，再开展真实更新。
+更新时间：2026-10-15，Asia/Taipei。内容和 UI 由 Claude 继续维护；Codex 已完成域名、托管、GitHub 自动发布和基本验收。先阅读本文与 CLAUDE.md、AGENTS.md、README.md，再开展真实更新。
 
 ## 访问与权限
 
 - GitHub：https://github.com/Ming-Sir-69/ericmingle-daily
-- 源码默认分支：`master`。仓库暂时公开，普通读取可直接访问 raw 文件；写入仍通过本人已连接的 GitHub MCP。
+- 源码默认分支：`master`。仓库暂时公开，普通读取可直接访问 raw 文件；Claude 使用现有 Git 能力提交和推送，GitHub MCP 写文件不是必要条件。
 - 网站：https://ai.ycm69.cn/
 - 备用：https://ericmingle-daily.netlify.app/ （本机 Vortex 路径访问新域名失败时可用，同一网站与密码）
 - Netlify 项目：https://app.netlify.com/projects/ericmingle-daily
@@ -18,15 +18,15 @@
 
 ## 日常更新
 
-1. 用 GitHub MCP 读取 `master` 的 `templates/current`、最近一份 `entries/YYYY-MM-DD.json` 与需要的模板。
+1. 用当前会话已有的 Git checkout 读取 `master` 的 `templates/current`、最近一份 `entries/YYYY-MM-DD.json` 与需要的模板；先核对 origin 确为 `Ming-Sir-69/ericmingle-daily`，同步最新远端并保留本会话成果。
 2. 按 Asia/Taipei 实际日期生成当天 JSON。文件名与 `date` 必须相同，`template` 使用实际模板版本。
 3. 只提交可公开内容。保留可靠来源、原始 HTTPS 链接、采集时间与对铭哥的影响；信息缺失写无已核实更新，不编造账号／NAS 状态或把旧信息当今天新闻。
-4. 用 GitHub MCP 创建新文件；更正已有文件时先读取当前 blob SHA，再 update，避免覆盖并发修改。可用批量提交工具一次提交关联变更。只写 `master`，不手工改 `netlify-production`。
+4. 使用 Git 编辑文件、校验、提交并推送 `master`；不要等待不存在的 Codex GitHub MCP create_file／update_file。当前 master 未保护且无仓库 ruleset。若实际会话对已有分支另有限制，保留成果，推送允许的分支并创建 PR 正常合并至 master；发布以进入 master 为触发。先读取远端最新 SHA，避免覆盖并发修改，不手工改 `netlify-production`。若某个宿主确有 GitHub MCP 写入工具，也可采用 contents API，更新前核对 blob SHA。
 5. GitHub Actions「发布加密日报到 Netlify」自动校验、构建、加密；随后推送成品分支，Netlify 自动发布。不需要手机本地 Node、域名后台、SSH、服务器或 Netlify 部署令牌。
 6. 查询本次 Actions 和 Netlify 实际 deploy：`state=ready`、`published_at` 非空、branch 为 `netlify-production`。再读 https://ai.ycm69.cn/release.json，`source_commit` 必须与刚才的 master 提交 SHA 一致。
 7. 核对正式页面存在对应日期、内容来源正确、密码入口仍有效，再报告完成。Netlify 项目概览的 enriched “current” 文本不能单独作为成功依据。
 
-本宿主已用 GitHub MCP 实际创建本 HANDOFF.md，提交 `adc8a6e` 触发 Actions `38587289823` 成功，Netlify `6acf9be76742a04d0ba4b5cd` 自动发布，release.json 的源码 SHA 一致。Claude 仍需在自己的工具清单核对对应写入能力。不要把“从 GitHub 添加资料”的只读集成误认为可提交。首次接手实际执行一次写入并核对线上 release，未执行前不要宣称 Claude 端已经完整跑通。
+2026-10-14，Codex 的 GitHub MCP 创建本 HANDOFF.md，提交 `adc8a6e` 触发 Actions `38587289823` 成功并自动发布。这只证明 Codex 连接器和后端发布链路，不证明 Claude 有同一写文件工具。2026-10-15 本人反馈 Claude 只能用 Git，推送提示缺少 Claude GitHub App：现已安装官方 App，`Ming-Sir-69` 范围 All repositories（含未来仓库），安装编号 `171455412`；完成回调后 Claude GitHub 整合显示已连接。授权配置已核验；Claude 本人的真实 Git 推送重试由铭哥在手机端继续，尚不能记为推送成功。不要把普通“从 GitHub 添加资料”的只读集成误认为提交工具。详见 docs/Claude-GitHub授权核查.md。
 
 ## 已有输入结构和 UI
 
@@ -40,11 +40,11 @@
 
 **公开 GitHub 的原始日报 JSON 和提交历史可阅读；网页加密不保护源码。** 不提交证件、银行卡、私人邮件、访问密码或任何令牌。不要将项目切成私有后仍声称 Actions 不计私人分钟。
 
-加密密码至少 20 字符；脚本发现缺密码或未加密成品即失败，不允许“先临时上传 public/”。不修改付费计划、不购买主机、不扩展账号权限。网站没有发布原始 JSON、源码或交接文档，所有开发交接在本 GitHub。
+加密密码至少 20 字符；脚本发现缺密码或未加密成品即失败，不允许“先临时上传 public/”。本网站开发不修改付费计划、不购买主机、不另行扩展账号权限。当前 Claude App 的 All repositories 是铭哥 2026-10-15 本人明确授权的既有范围。网站没有发布原始 JSON、源码或交接文档，所有开发交接在本 GitHub。
 
 ## 定时与后续迁移
 
-此前交接声称 Claude 已有台北时间 8:55 任务；本轮未验证其真实状态，也没有新建或重复创建任务。接手后读取已有任务，确认云端工具确有写入权限，并做一次真实执行。手机不必保持开机，但平台连接器是否允许后台执行要按当时实际产品能力核对。
+此前交接声称 Claude 已有台北时间 8:55 任务；本轮未验证其真实状态，也没有新建或重复创建任务。接手后读取已有任务，确认云端 Git 仓库与实际认证有效，再做一次真实执行。手机不必保持开机，但平台连接器是否允许后台执行要按当时实际产品能力核对。
 
 未来迁入 Dot／自有服务器时保留 JSON、模板版本、来源和 Git；可复用既有 v2 采集与去重能力，迁移前检查实际运行与接口。Oracle 申诉交给 Dot 另行跟进，当前没有日本实例，不把网页可用写成日本主机已开通。
 
@@ -58,7 +58,7 @@
 
 某次失败不会替换此前成功生产部署。先根据具体失败阶段修复；不要反复开新的项目或域名模板。Netlify 环境变量 MCP 曾回报成功但读回为空，最终发布不依赖该接口；必要时以实际部署日志为准。
 
-入口准备已完成；Claude 首次真实采集、写入、任务验证属于接手后的工作。
+域名、托管、发布与 GitHub App 授权已完成配置；Claude 首次真实采集、Git 推送、任务验证属于接手后的工作。
 
 本机网络说明：2026-10-14，Vortex 的 127.0.0.1:7897 代理对新 ycm69.cn 域名出现 ERR_CONNECTION_CLOSED；中国直连与 Netlify 原生备用网址均正常。只追加过三个日报域名的系统绕过项，临时使主站可打开，但 Vortex helper 重启后覆盖了该设置；没有关闭全局代理，也没有后台循环改写网络设置。云端自动发布不依赖本机代理，阅读遇到此问题使用备用网址。
 

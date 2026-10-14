@@ -1,7 +1,11 @@
 # 四时日报 Claude 入口
 
-先读 [HANDOFF.md](HANDOFF.md)、[AGENTS.md](AGENTS.md) 与 [README.md](README.md)。日常用现有 GitHub MCP 修改 `master` 的 entries／templates；GitHub Actions 加密后自动提交 `netlify-production`，Netlify 自动发布。
+先读 [HANDOFF.md](HANDOFF.md)、[AGENTS.md](AGENTS.md) 与 [README.md](README.md)。源码在 `master`。**当前 Claude 接手方没有 Codex 的 GitHub MCP 写文件工具，使用实际可用的 Git 编辑、提交和推送即可；不要等待或索要不存在的 MCP 工具。** GitHub Actions 加密后自动提交 `netlify-production`，Netlify 自动发布。
 
-当前仓库按本人授权暂时公开，只提交可公开内容，源码 JSON 不受网页密码保护。不要写入凭据、完整身份信息、私人邮件、卡片数据或访问密码。不要改生产分支为 master，不直接编辑自动生成的 netlify-production，也不上传 public/ 明文。
+2026-10-15 已安装官方 `anthropics/claude` GitHub App，安装编号 `171455412`，个人账号 `Ming-Sir-69` 的仓库范围为 **All repositories**，覆盖该账号现有和未来仓库，Claude GitHub 整合已完成连接。代码与工作流等读写权限已由 GitHub 安装页核对；当前 `master` 未保护且没有仓库 ruleset。详情见 [授权核查](docs/Claude-GitHub授权核查.md)。权限配置已验证，接手方实际重试 Git 推送仍由本人在手机端发指令，不把 Codex 的普通 Git 推送当成 Claude 云端认证验证。
 
-保留 Claude 原 UI 与模板版本，读取实际连接器工具后完成一次真实写入和发布验收。未来再迁移 Dot／自有服务器。有关旧定时任务，只核对现状，不在本轮重复创建。
+当前仓库按本人授权暂时公开，只提交可公开内容，源码 JSON 不受网页密码保护。不要写入凭据、完整身份信息、私人邮件、卡片数据或访问密码。不要改 Netlify 生产分支为 master，不直接编辑自动生成的 netlify-production，也不上传 public/ 明文。
+
+保留 Claude 原 UI 与模板版本。修改前读取远端最新状态，保留当前会话未提交成果；Git 快进或合并后推送 `master`，若实际会话仍拒绝已有分支则保留成果、推送允许的分支并通过 PR 正常合并，按 GitHub 的实际规则处理，不绕过平台限制。不要覆盖并发提交。后续核对线上 release.json 的 source_commit 与进入 master 的提交 SHA 一致。
+
+未来再迁移 Dot／自有服务器。有关旧定时任务，只核对现状，不在本轮重复创建。

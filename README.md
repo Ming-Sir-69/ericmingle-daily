@@ -6,7 +6,9 @@ Claude 负责内容与 UI，铭哥直接打开 [日报网站](https://ai.ycm69.c
 
 ## 当前发布流程
 
-`Claude GitHub MCP 更新 master → GitHub Actions 校验、构建、加密 → netlify-production 分支 → Netlify 自动发布`。
+`Claude 使用 Git 提交并推送 master → GitHub Actions 校验、构建、加密 → netlify-production 分支 → Netlify 自动发布`。
+
+2026-10-15 已补装官方 Claude GitHub App，为 `Ming-Sir-69` 开通 All repositories（含未来仓库）；Claude 不需要 Codex 的 MCP 写文件工具。授权配置与真实推送验证分别记录，见 [授权核查](docs/Claude-GitHub授权核查.md)。
 
 - 源码仓库：<https://github.com/Ming-Sir-69/ericmingle-daily>，默认分支 `master`。
 - 正式网站：<https://ai.ycm69.cn/>；备用域名：<https://ericmingle-daily.netlify.app/>。根域名及 www 经 HTTPS 跳到日报子域名。
