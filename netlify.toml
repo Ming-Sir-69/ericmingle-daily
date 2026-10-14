@@ -1,0 +1,15 @@
+[build]
+  command = "node scripts/build.js && bash scripts/encrypt.sh"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # Not secret: keeps "remember me" working across deploys.
+  BRIEF_SALT = "c8c0ceacc4f1ee5ffd4abac216c9c2b7"
+  # BRIEF_PASSWORD is set in Netlify → Site configuration → Environment variables. Never commit it.
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Referrer-Policy = "no-referrer"

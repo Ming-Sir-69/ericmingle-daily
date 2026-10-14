@@ -1,0 +1,26 @@
+{
+ "date": "2026-10-12",
+ "template": "v1",
+ "scene": {
+  "level": 1,
+  "season": "autumn",
+  "weather": "partly",
+  "holiday": "none"
+ },
+ "headline": "示例：晴时多云的星期一",
+ "tags": [
+  "示例数据",
+  "仅用于预览版式"
+ ],
+ "sections": [
+  {
+   "key": "ai",
+   "title": "AI 动态",
+   "groups": [
+    {
+     "note": "这是一条示例记录，用来展示「近详远略」的版式，不是真实的日报内容。"
+    }
+   ]
+  }
+ ]
+}

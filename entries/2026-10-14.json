@@ -1,0 +1,107 @@
+{
+  "date": "2026-10-14",
+  "template": "v1",
+  "scene": { "level": 3, "season": "autumn", "weather": "partly", "holiday": "none" },
+  "headline": "今天整天都归你，Mingle。",
+  "tags": ["Gemini 4 Argon", "ChatGPT Pro 200 额度下调", "xAI 合并订阅", "NAS 三个容器退出"],
+  "acts": [
+    { "time": "上午 9:00 – 12:00", "text": "日历和待办里都没有条目，这一段是空的。" },
+    { "time": "下午 12:00 – 6:00", "text": "没有会议，也没有截止时间，是一整块可以自己用的时间。" },
+    { "time": "傍晚 6:00 起", "text": "晚上没有安排，明天的日历同样是空的。" }
+  ],
+  "sections": [
+    {
+      "key": "system",
+      "title": "系统状态",
+      "groups": [
+        {
+          "items": [
+            { "title": "NAS 有三个容器处于退出状态", "body": "今天的 NAS 体检显示，mail-mcp 和 mail-thunderbird 已退出 4 天，nas-proxy 约 42 小时前退出，邮箱 connector 目前仍能读到邮件。" }
+          ],
+          "note": "邮箱授权和 5 块硬盘的 SMART 状态均无异常。"
+        }
+      ]
+    },
+    {
+      "key": "accounts",
+      "title": "账号与订阅",
+      "groups": [
+        { "heading": "需要你处理", "note": "团队订阅邮箱里没有需要你处理的账号事项。" },
+        {
+          "heading": "已了结",
+          "items": [
+            { "title": "Oracle Cloud 发来注册验证邮件", "body": "团队订阅邮箱在 10 月 12 日收到 Oracle Cloud 的邮箱验证信，邮件已读，之后没有开通成功或失败的后续来信。" },
+            { "title": "Apollo 账号已注册", "body": "团队订阅邮箱在 10 月 10 日收到 Apollo 的欢迎信，之后只有推广邮件；importyeti、libt、vfyl 近 30 天没有来信，封禁、注销、到期类关键词也没有命中。" }
+          ]
+        },
+        {
+          "heading": "订阅与费用变化",
+          "items": [
+            {
+              "title": "xAI 把 Grok、Cursor 和 X Premium 合成一个订阅",
+              "url": "https://x.ai/news/x-subscription",
+              "source": "xAI 在 10 月 12 日的官方公告",
+              "body": "里列出 Plus $8、Premium $30、Super $100、Ultra $200 四档付费计划，Grok 用量在 Grok 与 Cursor 之间共享，新用户当天可订。",
+              "impact": "公告称 Premium 档的权益此前合计 $90/月；已有 SuperGrok、Cursor 或 X Premium 订阅者可在账单设置里切换，旧计划按比例退款。"
+            },
+            {
+              "title": "ChatGPT Pro 200 老用户额度 10 月 29 日下调",
+              "url": "https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers",
+              "source": "OpenAI 帮助中心的 Pro 档位说明",
+              "body": "列出 Pro 100、Pro 200、Pro 500 三档；9 月 22 日至 29 日间持有 Pro 200 的用户，原有额度保留到 10 月 29 日，之后转为较低额度。",
+              "impact": "Pro 200 价格不变，额度变少；Pro 200 已重新开放新订阅，但新订阅也是较低额度。"
+            },
+            {
+              "title": "Claude Max 和 Team 每月附带 API 额度",
+              "url": "https://www.anthropic.com/claude-haiku-5-5",
+              "source": "Anthropic 在 10 月 7 日的发布公告",
+              "body": "写明，Max 5x 每月 $100、Max 20x $200、Team 最多 $500（团队共享），用于 Claude Platform，当周陆续开放。",
+              "impact": "公告只列出 Max 和 Team，Pro 不在其中；额度可用于任意模型。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "ai",
+      "title": "AI 动态",
+      "groups": [
+        {
+          "items": [
+            {
+              "title": "Gemini 4 Argon 全面开放",
+              "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+              "source": "Google 在 10 月 14 日的官方博客",
+              "body": "宣布模型面向开发者、企业和消费者全球开放，可经 Gemini API、AI Studio 调用；Artificial Analysis 的智能指数显示它与 GPT-6 Astra 持平，单任务成本为后者的 60%。",
+              "impact": "同档智能指数下，单任务成本多了一个更低的参照点。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "dev",
+      "title": "研发视角",
+      "groups": [
+        {
+          "items": [
+            {
+              "title": "Anthropic 自研版本控制系统 Scion",
+              "url": "https://aihot.news/items/fpyjwv3o9zwxc9zs7j1bmnw8i",
+              "source": "AIHOT 收录的 Anthropic 工程复盘",
+              "body": "写到，日均合并量从 5 月约 2,500 升到 9 月超过 30,000，五个月内把 monorepo 从 git 迁到 Scion，并同时推出代码评审工具 Antique。",
+              "impact": "合并量增至约 12 倍后，版本控制和代码评审工具被一并替换。"
+            },
+            {
+              "title": "LangSmith 上线 AI Search",
+              "url": "https://aihot.news/items/cgbpvdepk4p1jrrawgzbfbxov",
+              "source": "LangChain 在 10 月 13 日的博客",
+              "body": "介绍，LangSmith 现在可以用自然语言按行为搜索 agent 的运行轨迹。",
+              "impact": "排查 agent 运行问题时，可以按行为描述找轨迹，不必先写过滤条件。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

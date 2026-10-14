@@ -1,0 +1,6 @@
+public/
+public-demo/
+dist/
+node_modules/
+.staticrypt.json
+.DS_Store
