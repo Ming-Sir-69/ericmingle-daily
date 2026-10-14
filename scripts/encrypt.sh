@@ -8,6 +8,11 @@ if [ -z "${BRIEF_PASSWORD:-}" ]; then
   exit 1
 fi
 
+if [ "${#BRIEF_PASSWORD}" -lt 20 ]; then
+  echo "BRIEF_PASSWORD must contain at least 20 characters." >&2
+  exit 1
+fi
+
 rm -rf dist
 STATICRYPT_PASSWORD="$BRIEF_PASSWORD" ./node_modules/.bin/staticrypt public/* -r -d dist \
   --config false \
