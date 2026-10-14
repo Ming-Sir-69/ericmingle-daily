@@ -36,7 +36,7 @@ node scripts/build.js --demo   # 加上示例数据 → public-demo/
 1. 在 [netlify.com](https://www.netlify.com) 用 GitHub 账号登录。
 2. **Add new site → Import an existing project → GitHub**，选这个仓库。构建设置会从 `netlify.toml` 自动读取，不用改。
 3. **Site configuration → Environment variables** 新增 `BRIEF_PASSWORD`，填你想用的密码。密码只存在 Netlify，不进仓库。
-4. **Site configuration → Change site name** 改成 `ai-ericmingle69`，网址就是 `https://ai-ericmingle69.netlify.app`。
+4. **Site configuration → Change site name** 已改成 `ericmingle-daily`；对外网址是 `https://ai.ericmingle69.com`（域名买好、绑定后）。
 5. **Deploys → Trigger deploy**。打开网址，输入密码就能看到日报中心；勾选「记住 30 天」后，这台设备一个月内不用再输。
 
 以后想换自己的域名，在 **Domain management** 里加上即可，不影响其他设置。
