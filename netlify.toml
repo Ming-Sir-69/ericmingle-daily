@@ -1,0 +1,8 @@
+[build]
+  command = "test -f site/index.html && test -f site/release.json"
+  publish = "site"
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Referrer-Policy = "no-referrer"
