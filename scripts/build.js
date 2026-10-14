@@ -213,10 +213,10 @@ function renderToday(e) {
   if (!e) return '  <p class="empty">还没有日报记录。</p>';
   return `  <section class="today">
     <div class="frame">${miniScene(e.scene || {}, 'today')}</div>
-    <p class="dateline">${dateline(e.date)} · 今天${demoMark(e)}</p>
+    <p class="dateline">${dateline(e.date)} · 最新一期${demoMark(e)}</p>
     <h3>${esc(e.headline)}</h3>
     ${tagList(e.tags, 6)}
-    <a class="open" href="d/${esc(e.date)}.html">打开今天的完整简报</a>
+    <a class="open" href="d/${esc(e.date)}.html">打开最新一期的完整简报</a>
   </section>`;
 }
 
