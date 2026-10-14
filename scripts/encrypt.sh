@@ -9,8 +9,8 @@ if [ -z "${BRIEF_PASSWORD:-}" ]; then
 fi
 
 rm -rf dist
-npx --yes staticrypt@3 public -r -d dist \
-  -p "$BRIEF_PASSWORD" \
+STATICRYPT_PASSWORD="$BRIEF_PASSWORD" ./node_modules/.bin/staticrypt public/* -r -d dist \
+  --config false \
   -s "${BRIEF_SALT:?BRIEF_SALT missing}" \
   --short \
   --remember 30 \
@@ -23,9 +23,23 @@ npx --yes staticrypt@3 public -r -d dist \
   --template-color-primary "#C6613F" \
   --template-color-secondary "#F9F9F7"
 
-# Sanity check: no page in dist may still contain the plain brief markup.
-if grep -rl 'class="item-title"' dist >/dev/null 2>&1; then
-  echo "Found unencrypted content in dist/. Aborting." >&2
-  exit 1
-fi
-echo "encrypted $(find dist -name '*.html' | wc -l) page(s)"
+# Every input page must have a corresponding encrypted output page.
+node <<'NODE'
+const fs = require('fs');
+const path = require('path');
+const pages = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+  const p = path.join(dir, e.name);
+  return e.isDirectory() ? pages(p) : e.name.endsWith('.html') ? [p] : [];
+});
+const inputs = pages('public');
+const outputs = pages('dist');
+if (!inputs.length || inputs.length !== outputs.length) throw new Error('Encrypted page count mismatch');
+for (const input of inputs) {
+  const output = path.join('dist', path.relative('public', input));
+  const html = fs.readFileSync(output, 'utf8');
+  if (!html.includes('staticryptEncryptedMsgUniqueVariableName') || html.includes('class="item-title"') || html.includes('class="scene-mini"')) {
+    throw new Error(`Missing encryption in ${output}`);
+  }
+}
+console.log(`encrypted ${outputs.length} page(s)`);
+NODE

@@ -4,5 +4,8 @@
   "scripts": {
     "build": "node scripts/build.js",
     "demo": "node scripts/build.js --demo"
+  },
+  "devDependencies": {
+    "staticrypt": "3.5.4"
   }
 }

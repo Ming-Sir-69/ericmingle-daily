@@ -28,6 +28,10 @@ function readJSONDir(dir, demo) {
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f)).map((f) => {
     const e = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
+    if (e.date !== f.slice(0, -5) || new Date(`${e.date}T00:00:00Z`).toISOString().slice(0, 10) !== e.date) {
+      throw new Error(`Invalid entry date in ${f}`);
+    }
+    if (e.template && !/^v\d+$/.test(e.template)) throw new Error(`Invalid template version in ${f}`);
     e._demo = !!demo;
     return e;
   });
