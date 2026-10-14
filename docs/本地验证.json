@@ -17,5 +17,11 @@
     "items": 9
   },
   "runtime": "v26.7.0",
-  "tested_at": "2026-10-14 Asia/Taipei"
+  "tested_at": "2026-10-14 Asia/Taipei",
+  "staticrypt_version": "3.5.4",
+  "encryption_page_count": 2,
+  "decryption_equals_source_bytes": "PASS",
+  "invalid_entry_date_rejected": "PASS",
+  "invalid_template_path_rejected": "PASS",
+  "password_missing_guard": "PASS"
 }
