@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-15",
+  "template": "v1",
+  "collected_at": "2026-10-15T01:20:00+08:00",
+  "scene": { "level": 4, "season": "autumn", "weather": "partly", "holiday": "none" },
+  "headline": "星期四了，Mingle，今天的新消息不多，慢慢看。",
+  "tags": ["Google Deep Review", "Lovable 增长工具", "Copilot 远程执行漏洞"],
+  "acts": [],
+  "sections": [
+    {
+      "key": "system",
+      "title": "系统状态",
+      "groups": [
+        { "note": "系统和账号的具体状态属于私人信息，仓库公开期间不写入公开记录。" }
+      ]
+    },
+    {
+      "key": "accounts",
+      "title": "账号与订阅",
+      "groups": [
+        {
+          "heading": "订阅与费用变化",
+          "note": "过去 24 小时没有已核实的 OpenAI、Anthropic、xAI 消费订阅调整。昨天记下的 ChatGPT Pro 200 老用户额度将在 10 月 29 日下调，仍未生效。"
+        }
+      ]
+    },
+    {
+      "key": "ai",
+      "title": "AI 动态",
+      "groups": [
+        {
+          "items": [
+            {
+              "title": "Google 公开发布技术文档审阅智能体 Deep Review",
+              "url": "https://research.google/blog/analyzing-technical-documents-with-deep-review/",
+              "source": "Google Research 博客",
+              "body": "介绍，Deep Review 对复杂技术文档给出反馈和验证，最初用于计算机科学论文，现已扩展到法律、金融等领域。",
+              "impact": "长文档审阅多了一个由大厂直接提供的参照，评估自研文档审查流程时可以对照它的分阶段设计。"
+            },
+            {
+              "title": "Lovable 在建应用的对话里加入获客工具",
+              "url": "https://lovable.dev/blog/introducing-growth-tools",
+              "source": "Lovable 官方博客",
+              "body": "宣布，在原有的建应用对话窗口里提供增长计划、广告投放和 SEO，可连接 Google Ads 与 Meta 账号，投放前需要用户审批。",
+              "impact": "AI 建站工具开始把获客环节一起包进来，同类产品的功能边界又往后延了一段。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "dev",
+      "title": "研发视角",
+      "groups": [
+        {
+          "items": [
+            {
+              "title": "Visual Studio Copilot 与 SSMS 远程代码执行漏洞",
+              "url": "https://embracethered.com/blog/posts/2026/visual-studio-copilot-remote-code-execution/",
+              "source": "安全研究员 Johann Rehberger 的披露",
+              "body": "写到，漏洞编号 CVE-2026-103572，利用文件名末尾多加一个点绕过路径校验，改写 .mcp 等受保护的配置文件，从而执行任意命令。",
+              "impact": "智能体能写入 MCP 和编辑器配置文件时，路径校验是关键防线；自己的 agent 工具链也会遇到同类问题。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
