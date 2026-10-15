@@ -1,12 +1,12 @@
 # 四时日报
 
-Claude 负责内容与 UI，铭哥直接打开 [日报网站](https://ai.ycm69.cn/) 阅读。源码与交接集中在本仓库，先运行云端工作流，再按需要迁入 Dot 或自有服务器。
+GPT／Codex 负责日常搜索、比较、监控和日报更新；Claude 按需负责设计、UI、代码改进和维护。铭哥直接打开 [日报网站](https://ai.ycm69.cn/) 阅读。源码与交接集中在本仓库，再按需要迁入 Dot 或自有服务器。详见 [协作分工](docs/协作分工.md)。
 
 **Claude 接手入口：[HANDOFF.md](HANDOFF.md)。**
 
 ## 当前发布流程
 
-`Claude 使用 Git 提交并推送 master → GitHub Actions 校验、构建、加密 → netlify-production 分支 → Netlify 自动发布`。
+`获授权的协作者提交 master → GitHub Actions 校验、构建、加密 → netlify-production 分支 → Netlify 自动发布`。
 
 2026-10-15 已补装官方 Claude GitHub App，为 `Ming-Sir-69` 开通 All repositories（含未来仓库）；Claude 不需要 Codex 的 MCP 写文件工具。授权配置与真实推送验证分别记录，见 [授权核查](docs/Claude-GitHub授权核查.md)。
 
@@ -57,6 +57,6 @@ npm run check  # 隔离构建、加密和精确解密，检查缺密码阻断
 
 UI 迭代可复制 `templates/v1` 为新版本并更新 `templates/current`；历史记录保留自己的 `template`，不覆盖历史样式。日报中心显示“最新一期”和实际日期，断更时不误标为今天。
 
-现有 Claude 8:55 任务的真实运行与连接器权限，由 Claude 首次接手实测；本轮没有替它新建定时任务。未来迁移保留 JSON、模板、Git 历史与发布接口，当前不购日本服务器。
+现有 Claude 08:55 排程曾因会话未附加仓库而推送失败。最新分工不再让 Claude 每天运行；旧排程未确认删除，GPT 日常运行也尚未配置定时任务。未来迁移保留 JSON、模板、Git 历史与发布接口，当前不购日本服务器。
 
 本机 Vortex 对新域名可能返回连接中断；网站中国直连有效，遇到此问题使用上述 Netlify 原生备用网址。网页阅读密码同一份。完整网络验证边界在 `docs/上线验证.json`。

@@ -1,6 +1,6 @@
 # Claude 云端写入日报说明
 
-日报内容继续由 Claude 云端任务生成。独立网页从仓库的结构化记录构建，阅读者无需打开 Claude。当前仓库为 [Ming-Sir-69/ericmingle-daily](https://github.com/Ming-Sir-69/ericmingle-daily)，本轮默认分支为 `master`；实际使用时以仓库当前默认分支为准。
+2026-10-15 分工已调整：日报日常搜索、比较、监控与内容更新交给 GPT／Codex；Claude 按需负责设计、UI、代码和维护。本文件保留 Claude 参与维护时的写入约定，不再要求其每天运行。详见 [协作分工](协作分工.md)。独立网页从仓库的结构化记录构建，阅读者无需打开 Claude。当前仓库为 [Ming-Sir-69/ericmingle-daily](https://github.com/Ming-Sir-69/ericmingle-daily)，默认分支为 `master`。
 
 ## 需要的能力
 
@@ -8,7 +8,7 @@ Claude 云端需要读取模板与已有记录，并创建或修改 `entries/YYY
 
 Claude 的普通“从 GitHub 添加”功能用于读取和同步仓库资料；不能据此推定当前账号已具备提交能力。当前接手方没有 Codex 的 GitHub MCP 写文件工具，直接使用云端 Git 提交和推送；不要求添加不存在的 MCP 文件工具。[Claude GitHub 集成说明](https://support.claude.com/en/articles/10167454-use-the-github-integration)
 
-现有定时任务由 Claude 侧维护；交接方说明为台北时间 8:55，当前尚未独立核验任务与写入权限。官方说明云端定时任务可使用已连接的工具，电脑无需保持开启；依赖本机文件或应用的任务仍需区别处理。[Claude 定时任务说明](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork)
+原台北时间 08:55 Claude 排程的会话未附加仓库，实际推送报 403；App 全仓授权不代替该会话范围。后续不再推进 Claude 每日排程迁移，删除对象及实际清理结果尚未确认。Claude 网页只由本人操作。
 
 ## 写入约定
 
@@ -17,7 +17,7 @@ Claude 的普通“从 GitHub 添加”功能用于读取和同步仓库资料�
 | 字段 | 用途 |
 | --- | --- |
 | `date` | 当天日期，格式 YYYY-MM-DD |
-| `template` | 当天使用的模板版本，读取 `templates/current`，当前为 v1 |
+| `template` | 当天使用的模板版本，读取 `templates/current`，当前为 v2 |
 | `scene` | 星期画面层级、季节、天气、节日 |
 | `headline`、`tags` | 开场白与简洁标签 |
 | `acts` | 时段与安排描述 |
