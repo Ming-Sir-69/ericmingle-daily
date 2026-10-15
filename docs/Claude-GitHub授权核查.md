@@ -35,3 +35,9 @@ GitHub Actions `38609582323` 成功，真实 https://ai.ycm69.cn/release.json �
 本次失败会话导出的补丁包含两次提交，已由 Codex 在本机检查后正常应用并推送：`06942f4` 更新当天日报，`8af011e7094131d51e0dccecd05b08a163e553ae` 增加 v2 模板。没有运行 reset --hard 或强制推送。`npm run check` 与构建通过，Actions `38711225313` 成功；正式站 release.json 已返回上述完整 v2 SHA、encrypted_pages=3。补丁包含昼夜切换、日月转轮与相关插画；本轮 Codex 未对正式站完成昼夜视觉验收。
 
 操作边界：Claude 网页仅由铭哥本人打开与操作。后续代理只在授权范围内处理 GitHub、Netlify、本机代码，以及本人提供的截图和报错，不通过浏览器或替代接口修改 Claude 对话、连接器或排程。
+
+## 当晚权限测试与清理
+
+GitHub 中另出现 Claude 的 `perm-test-20261015` 测试分支及 PR #2（标题 t，已关闭），测试提交 `9e8beefda4349ba3c6bf46caf3d86cf1fe9998f5` 与基线 `2996447` 文件树无差异；`perm-test-2-20261015` 直接指向同一基线。这再次提供了特定 Claude 会话能创建分支和提交的证据，不能据此推导其能删除引用或修改所有受限资源。
+
+本人随后解释删除受手机宿主沙箱限制，明确要求 Codex 清理 GitHub 测试分支。Codex 已在核对远端 SHA 未变、两分支均无业务文件变化后，条件删除上述两条测试引用，并读回远端仅余 `master` 与 `netlify-production`。主线、生产分支与网站发布流程保留，没有重新操作 Claude 网页或排程。最新职责分工见 [协作分工](协作分工.md)。

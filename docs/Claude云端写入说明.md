@@ -8,7 +8,7 @@ Claude 云端需要读取模板与已有记录，并创建或修改 `entries/YYY
 
 Claude 的普通“从 GitHub 添加”功能用于读取和同步仓库资料；不能据此推定当前账号已具备提交能力。当前接手方没有 Codex 的 GitHub MCP 写文件工具，直接使用云端 Git 提交和推送；不要求添加不存在的 MCP 文件工具。[Claude GitHub 集成说明](https://support.claude.com/en/articles/10167454-use-the-github-integration)
 
-原台北时间 08:55 Claude 排程的会话未附加仓库，实际推送报 403；App 全仓授权不代替该会话范围。后续不再推进 Claude 每日排程迁移，删除对象及实际清理结果尚未确认。Claude 网页只由本人操作。
+原台北时间 08:55 Claude 排程的会话未附加仓库，实际推送报 403；App 全仓授权不代替该会话范围。后续不再推进 Claude 每日排程迁移。本轮本人要求清理的是 GitHub 权限测试分支，已完成；没有操作 Claude 排程。Claude 网页只由本人操作。
 
 ## 写入约定
 
