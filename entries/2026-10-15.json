@@ -1,10 +1,10 @@
 {
   "date": "2026-10-15",
   "template": "v1",
-  "collected_at": "2026-10-15T01:20:00+08:00",
+  "collected_at": "2026-10-15T08:57:00+08:00",
   "scene": { "level": 4, "season": "autumn", "weather": "partly", "holiday": "none" },
-  "headline": "星期四了，Mingle，今天的新消息不多，慢慢看。",
-  "tags": ["Google Deep Review", "Lovable 增长工具", "Copilot 远程执行漏洞"],
+  "headline": "早安，Mingle，晴时多云的星期四，Gemini 4 Argon 和 Grok Voice 3.0 都摆在这儿了，挑你感兴趣的看。",
+  "tags": ["Gemini 4 Argon", "Grok Voice 3.0", "GPT-6 维护代码", "Agent 记忆"],
   "acts": [],
   "sections": [
     {
@@ -20,7 +20,7 @@
       "groups": [
         {
           "heading": "订阅与费用变化",
-          "note": "过去 24 小时没有已核实的 OpenAI、Anthropic、xAI 消费订阅调整。昨天记下的 ChatGPT Pro 200 老用户额度将在 10 月 29 日下调，仍未生效。"
+          "note": "过去 24 小时没有已核实的 OpenAI、Anthropic、xAI 消费订阅调整。之前记下的 ChatGPT Pro 200 老用户额度将在 10 月 29 日下调，仍未生效。"
         }
       ]
     },
@@ -31,18 +31,25 @@
         {
           "items": [
             {
+              "title": "Gemini 4 Argon 向全球 Google AI Pro 和 Ultra 订阅者开放",
+              "url": "https://x.com/GeminiApp/status/2110491358498865638",
+              "source": "Gemini 官方账号 @GeminiApp",
+              "body": "宣布，此前在 Gemini 应用中逐步推出的 Gemini 4 Argon 现已面向全球 Google AI Pro 和 Ultra 订阅者开放，定位为处理复杂任务的前沿模型。",
+              "impact": "前沿模型订阅档位里多了一个可直接对比的选项，Google AI Pro 与 ChatGPT、Claude 同价位档的比较基准随之变化。"
+            },
+            {
+              "title": "xAI 发布语音模型 Grok Voice 3.0",
+              "url": "https://x.ai/news/grok-voice-3",
+              "source": "xAI 官方新闻页",
+              "body": "发布，Grok Voice 3.0 为语音到语音模型，响应延迟低于一秒，在 Artificial Analysis 语音到语音指数得 86.9 分居首；API 中 grok-voice-latest 已自动切到新版，价格与 2.0 相同。",
+              "impact": "实时语音智能体的模型选型多了一个延迟低、价格未涨的候选，已接入 grok-voice-latest 的产品会直接换到新模型。"
+            },
+            {
               "title": "Google 公开发布技术文档审阅智能体 Deep Review",
               "url": "https://research.google/blog/analyzing-technical-documents-with-deep-review/",
               "source": "Google Research 博客",
               "body": "介绍，Deep Review 对复杂技术文档给出反馈和验证，最初用于计算机科学论文，现已扩展到法律、金融等领域。",
-              "impact": "长文档审阅多了一个由大厂直接提供的参照，评估自研文档审查流程时可以对照它的分阶段设计。"
-            },
-            {
-              "title": "Lovable 在建应用的对话里加入获客工具",
-              "url": "https://lovable.dev/blog/introducing-growth-tools",
-              "source": "Lovable 官方博客",
-              "body": "宣布，在原有的建应用对话窗口里提供增长计划、广告投放和 SEO，可连接 Google Ads 与 Meta 账号，投放前需要用户审批。",
-              "impact": "AI 建站工具开始把获客环节一起包进来，同类产品的功能边界又往后延了一段。"
+              "impact": "长文档审阅多了一个由大厂直接提供的参照，自研文档审查流程可以对照它的分阶段设计。"
             }
           ]
         }
@@ -55,11 +62,25 @@
         {
           "items": [
             {
-              "title": "Visual Studio Copilot 与 SSMS 远程代码执行漏洞",
-              "url": "https://embracethered.com/blog/posts/2026/visual-studio-copilot-remote-code-execution/",
-              "source": "安全研究员 Johann Rehberger 的披露",
-              "body": "写到，漏洞编号 CVE-2026-103572，利用文件名末尾多加一个点绕过路径校验，改写 .mcp 等受保护的配置文件，从而执行任意命令。",
-              "impact": "智能体能写入 MCP 和编辑器配置文件时，路径校验是关键防线；自己的 agent 工具链也会遇到同类问题。"
+              "title": "OpenAI 团队公开用 GPT-6 系列 + Codex 维护代码库的数据",
+              "url": "https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family",
+              "source": "OpenAI 开发者博客（Core Experimentation 团队）",
+              "body": "写到，团队用 Codex 搭配 GPT-6 Astra 与 GPT-6.1 Sol 删除无用代码、清理过期实验、修复不稳定测试；清理过期实验时 GPT-6.1 Sol Ultra 找到 Astra Ultra 约 92% 的问题，成本约为其 14%。",
+              "impact": "批量代码维护类任务里，较便宜的 Sol 档位在成本上优势明显，选模型时可以按任务类型分档而不是一律用最强档。"
+            },
+            {
+              "title": "Claude Code 空闲压缩可关闭并自定义阈值",
+              "url": "https://x.com/lydiahallie/status/2110484841926152622",
+              "source": "Anthropic Claude Code 团队成员 Lydia Hallie",
+              "body": "说明，空闲压缩会让 Claude 从摘要而非完整上下文继续；可在 settings 里设 \"idleCompaction\": false 关闭，或用 CLAUDE_CODE_IDLE_COMPACT_MIN_TOKENS 调整阈值，默认 200k。",
+              "impact": "长会话在空闲后可能丢失细节，依赖完整上下文的工作流需要留意这一默认行为。"
+            },
+            {
+              "title": "LangChain 讲解 Deep Agents 的记忆与上下文管理",
+              "url": "https://www.langchain.com/blog/context-engineering-deep-agents-remember",
+              "source": "LangChain 官方博客",
+              "body": "介绍，开源框架 Deep Agents 通过 middleware 组合卸载到文件、摘要压缩、按需加载技能、子代理和文件式长期记忆五种手段，应对长任务中的上下文退化，换模型时记忆不受影响。",
+              "impact": "Agent 长期记忆正收敛到“文件 + 按需加载”的做法，自建 agent 的记忆层可以参考这套分层，降低对单一模型上下文长度的依赖。"
             }
           ]
         }
