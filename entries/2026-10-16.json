@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-16",
+  "template": "v2",
+  "collected_at": "2026-10-16T16:51:55+08:00",
+  "scene": {
+    "level": 5,
+    "season": "autumn",
+    "weather": "partly",
+    "holiday": "none"
+  },
+  "headline": "早安，Mingle，芦洲今天晴时多云。科研 AI 有了新入口，GitHub 的 Agent 安全工具也向前走了一步。",
+  "tags": [
+    "GPT-Rosalind",
+    "模型独立评估",
+    "AI 代码安全",
+    "跨仓库协作"
+  ],
+  "acts": [],
+  "sections": [
+    {
+      "key": "system",
+      "title": "系统状态",
+      "groups": [
+        {
+          "note": "系统和账号的具体状态属于私人信息，仓库公开期间不写入公开记录。"
+        }
+      ]
+    },
+    {
+      "key": "accounts",
+      "title": "账号与订阅",
+      "groups": [
+        {
+          "heading": "订阅与费用变化",
+          "note": "过去 24 小时没有已核实的 OpenAI、Anthropic、xAI 消费订阅调整。此前公布的 ChatGPT Pro 200 符合条件的老用户额度将于 10 月 29 日调整，目前尚未生效。"
+        }
+      ]
+    },
+    {
+      "key": "ai",
+      "title": "AI 动态",
+      "groups": [
+        {
+          "items": [
+            {
+              "title": "OpenAI 向美国大学实验室开放 GPT-Rosalind 学术计划",
+              "url": "https://openai.com/index/introducing-the-rosalind-academic-plan/",
+              "source": "OpenAI 官方公告",
+              "body": "宣布为符合条件的美国高校实验室提供最多 30 个免费 Business Standard 席位、最长 12 个月，并经可信访问审批提供 GPT-Rosalind 和 Rosalind Workbench；计划不包含 API 访问。",
+              "impact": "垂直领域模型与科研工具编排开始以实验室席位方式交付，显示专业 Agent 工作台与通用模型订阅之间的产品分层。"
+            },
+            {
+              "title": "Anthropic 允许 METR 深入内部系统独立评估模型风险",
+              "url": "https://www.anthropic.com/news/an-update-on-independent-evaluators",
+              "source": "Anthropic 官方公告",
+              "body": "说明已让 6 名 METR 评估人员以接近内部员工的权限访问相关工具和风险资料，METR 可独立发布评估结论，Anthropic 不能否决发表。",
+              "impact": "模型安全性比较开始出现来自外部机构、深入内部流程的评估证据，提升对供应商透明度的可核查程度。"
+            },
+            {
+              "title": "Google AI 搜索更新来源链接与官方站点展示",
+              "url": "https://blog.google/products-and-platforms/products/search/updates-ai-mode-overviews-explore-web/",
+              "source": "Google 官方博客",
+              "body": "宣布 AI Mode 和 AI Overviews 增加更清晰的内联链接、官方站点专区和新闻可视化入口，便于用户直接查看出处。",
+              "impact": "AI 搜索体验更加重视来源可追溯性，为情报产品比较引用展示与事实核查流程提供了新的参照。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "dev",
+      "title": "研发视角",
+      "groups": [
+        {
+          "items": [
+            {
+              "title": "GitHub AI Scan for pull requests 正式可用",
+              "url": "https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available/",
+              "source": "GitHub 官方更新日志",
+              "body": "宣布 AI Scan 已正式提供 PR 漏洞扫描，补充 CodeQL 尚未覆盖的 PHP、Shell/Bash、Terraform 配置和 Dockerfile 等文件；发现仅作建议，不阻止合并，并消耗 Code Security AI Credits。",
+              "impact": "公共仓库的代码安全检查覆盖面扩大，但其扫描结果属于提示性信号，且存在按 AI Credits 计费的成本边界。"
+            },
+            {
+              "title": "GitHub Agentic autofix 可自动修复代码扫描告警",
+              "url": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/",
+              "source": "GitHub 官方更新日志",
+              "body": "宣布 Agentic autofix 正式可用，可由 Copilot 跨文件提出修复、重跑 CodeQL 验证并创建草稿 PR；使用条件包括 GitHub Enterprise Cloud 的相关安全产品及计费配置。",
+              "impact": "代码安全维护形成从告警、修复到验证和人工审阅的 Agent 闭环，但主要面向具备企业安全订阅的团队。"
+            },
+            {
+              "title": "GitHub Copilot 在 Slack 与 Teams 支持一次查询多个仓库",
+              "url": "https://github.blog/changelog/2026-10-15-copilot-in-slack-and-teams-adds-model-and-repository-updates/",
+              "source": "GitHub 官方更新日志",
+              "body": "宣布 Copilot 可在同一 Slack 或 Microsoft Teams 对话中跨仓库查询 PR、合并进度和关联问题，并改进会话上下文与中断恢复。",
+              "impact": "多仓库研发情报聚合不再必须拆成独立对话，为跨项目 Agent 协作入口增加了一种实现方式。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
